@@ -1,6 +1,6 @@
 {
   "name": "legend-symbol",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "private": true,
   "dependencies": {
     "@mapbox/mapbox-gl-style-spec": "^13.16.0"
@@ -14,13 +14,13 @@
     "dev": "./scripts/demo"
   },
   "devDependencies": {
-    "classnames": "^2.2.6",
-    "concurrently": "^5.2.0",
+    "classnames": "^2.3.1",
+    "concurrently": "^6.2.0",
     "http-server": "^0.12.3",
-    "mapbox-gl": "^1.11.1",
-    "microbundle": "^0.12.2",
-    "preact": "^10.4.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "mapbox-gl": "^1.13.1",
+    "microbundle": "^0.13.1",
+    "preact": "^10.5.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

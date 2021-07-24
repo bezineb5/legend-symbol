@@ -24,15 +24,22 @@ export default function reactish (legendSymbol, createElement, {useState, useEff
     );
   }
 
+  const transformRequestFallback = (url) => {
+    return {url: url};
+  };
+
   return function Component (props) {
     const {zoom, layer} = props;
     const spriteUrl = props.sprite;
     const [sprite, setSprite] = useState(null);
 
+    const transformRequest = props.transformRequest || transformRequestFallback;
+
     useEffect(() => {
       let promise;
       if (spriteUrl) {
-        const existing = cache.fetch(spriteUrl);
+        const fetchObj = transformRequest(spriteUrl);
+        const existing = cache.fetch(fetchObj.url);
         if (existing) {
           existing.then(([image, json]) => {
             setSprite({
@@ -43,8 +50,8 @@ export default function reactish (legendSymbol, createElement, {useState, useEff
         }
         else {
           promise = Promise.all([
-            loadImage(spriteUrl+'@2x.png'),
-            loadJson(spriteUrl+'.json'),
+            loadImage(spriteUrl+'@2x.png', {transformRequest}),
+            loadJson(spriteUrl+'.json', {transformRequest}),
           ]);
           cache.add(spriteUrl, promise);
           promise.then(([image, json]) => {
@@ -59,7 +66,7 @@ export default function reactish (legendSymbol, createElement, {useState, useEff
           }
         }
       }
-    }, [spriteUrl]);
+    }, [spriteUrl, transformRequest]);
 
     const tree = legendSymbol({sprite, zoom, layer});
     return asReact(tree);
