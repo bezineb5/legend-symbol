@@ -1,5 +1,5 @@
 {
-  "name": "legend-symbol",
+  "name": "@watergis/legend-symbol",
   "version": "0.2.2",
   "private": true,
   "dependencies": {
@@ -9,10 +9,12 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "./scripts/build",
-    "dev": "./scripts/demo",
-    "prepare": "npm run build"
+    "dev": "./scripts/demo"
   },
   "devDependencies": {
     "classnames": "^2.3.1",
