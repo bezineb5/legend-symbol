@@ -1,7 +1,7 @@
 {
   "name": "@watergis/legend-symbol",
   "version": "0.2.2",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@mapbox/mapbox-gl-style-spec": "^13.16.0"
   },
