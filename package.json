@@ -11,7 +11,8 @@
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "build": "./scripts/build",
-    "dev": "./scripts/demo"
+    "dev": "./scripts/demo",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "classnames": "^2.3.1",
